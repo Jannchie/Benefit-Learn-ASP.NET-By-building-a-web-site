@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="benefitsMaster.master.cs" Inherits="benefitsMaster" %>
+
+<%@ Register src="header.ascx" tagname="header" tagprefix="uc1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 35px;
+            height: 60px;
+        }
+        .auto-style2 {
+            width: 8px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+                
+            <table style="width:100%;">
+                <tr>
+                    <td class="auto-style2">
+                        <img alt="Coho Winery logo" class="auto-style1" src="images/RedWine.jpg" /></td>
+                    <td>
+                        <uc1:header ID="header1" runat="server" />
+                    </td>
+                </tr>
+            </table>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
