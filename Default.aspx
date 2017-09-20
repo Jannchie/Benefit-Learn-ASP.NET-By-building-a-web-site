@@ -1,4 +1,4 @@
-﻿<%@ Page ValidateRequest="False" Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" UICulture="aa-DJ" %>
+﻿<%@ Page Trace="true" ValidateRequest="False" Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" UICulture="aa-DJ" %>
 <%@ Register src="header.ascx" tagname="header" tagprefix="uc1" %>
 
 <!DOCTYPE html>
