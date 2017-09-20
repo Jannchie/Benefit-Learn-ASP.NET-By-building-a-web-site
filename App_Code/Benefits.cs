@@ -22,6 +22,8 @@ public class Benefits
     }
     public BenefitInfo[] GetBenefitsList()
     {
+        HttpContext.Current.Trace.IsEnabled = true;
+        HttpContext.Current.Trace.Warn("Benefit component","Beginning of GetBenefitsList");
         BenefitInfo[] benefitsArray = new BenefitInfo[4];
         benefitsArray[0].benefitName = "Dental";
         benefitsArray[0].benefitPage = "dental.aspx";
@@ -31,6 +33,7 @@ public class Benefits
         benefitsArray[2].benefitPage = "life.aspx";
         benefitsArray[3].benefitName = "Retirement Account";
         benefitsArray[3].benefitPage = "retirement.aspx";
+        HttpContext.Current.Trace.Warn("Benefit component", "Ending of GetBenefitsList");
         return benefitsArray;
     }
 

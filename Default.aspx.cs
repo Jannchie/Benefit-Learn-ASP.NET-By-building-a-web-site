@@ -9,6 +9,8 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Trace.Warn("2310", "Begining of Page_Load");
+        Trace.Warn("2310", "IsPostBack=" + Page.IsPostBack);
         if (!Page.IsPostBack)
         {
             Benefits benefitsList = new Benefits();
