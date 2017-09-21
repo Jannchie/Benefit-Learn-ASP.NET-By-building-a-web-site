@@ -1,10 +1,11 @@
 <%@ Page Language="c#" %>
-<HTML>
-	<head>
-		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
-	</head>
-	<body style="font-family: Arial, Helvetica, sans-serif;font-size: x-small">
-		<SCRIPT language="c#" runat="Server"> 
+
+<html>
+<head>
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; font-size: x-small">
+    <script language="c#" runat="Server"> 
 	void Page_Load(object s, EventArgs e)
 	{
 		if (!Page.IsPostBack)
@@ -44,8 +45,8 @@
 	{
 		Label1.Text = Label1.Text + "server listbox change, ";
 	}
-		</SCRIPT>
-		<SCRIPT language="javascript"> 
+    </script>
+    <script language="javascript"> 
 	function buttonClick() 
 	{
 		span1.innerHTML = span1.innerHTML + "button clicked, ";
@@ -62,24 +63,33 @@
 	{
 		span1.innerHTML = span1.innerHTML + "listbox changed, ";
 	} 
-		</SCRIPT>
-		<FORM runat="server">
-			Name: <input type="text" onchange="textChange();" onserverchange="textServerChange" id="txtName" runat="server">
-			<P>Profession:
-				<SELECT id="lstTitle" onchange="listChange();" onserverchange="listServerChange" onserverclick="listServerClick" runat="server">
-					<OPTION selected>Software Engineer</OPTION>
-					<OPTION>Software Tester</OPTION>
-					<OPTION>Program Manager</OPTION>
-				</SELECT>
-			</P>
-			<P><asp:CheckBox AutoPostBack="true" onclick="checkClick();" 
-                    onserverclick="checkserverclick" oncheckedchanged="checkServerChange" 
-                    runat="server" id="Checkbox1" text="Certified Professional" /></P>
-			<P><INPUT type="submit" Value="Save" onServerClick="buttonServerClick" onClick="buttonClick()" runat="server" id="Submit1" name="Submit1"></P>
-			<p>Client-Side events: <span id="span1" runat="server" />
-			</p>
-			<p>Server-Side events:
-				<asp:Label id="Label1" runat="server" /></p>
-		</FORM>
-	</body>
-</HTML>
+    </script>
+    <form runat="server">
+        Name:
+        <input type="text" onchange="textChange();" onserverchange="textServerChange" id="txtName" runat="server">
+        <p>
+            Profession:
+				<select id="lstTitle" onchange="listChange();" onserverchange="listServerChange" onserverclick="listServerClick" runat="server">
+                    <option selected>Software Engineer</option>
+                    <option>Software Tester</option>
+                    <option>Program Manager</option>
+                </select>
+        </p>
+        <p>
+            <asp:CheckBox AutoPostBack="true" onclick="checkClick();"
+                onserverclick="checkserverclick" OnCheckedChanged="checkServerChange"
+                runat="server" ID="Checkbox1" Text="Certified Professional" />
+        </p>
+        <p>
+            <input type="submit" value="Save" onserverclick="buttonServerClick" onclick="buttonClick()" runat="server" id="Submit1" name="Submit1">
+        </p>
+        <p>
+            Client-Side events: <span id="span1" runat="server" />
+        </p>
+        <p>
+            Server-Side events:
+				<asp:Label ID="Label1" runat="server" />
+        </p>
+    </form>
+</body>
+</html>

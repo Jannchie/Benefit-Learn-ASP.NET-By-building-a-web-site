@@ -11,4 +11,13 @@ public partial class life : System.Web.UI.Page
     {
         Trace.Warn("new", "Life");
     }
+
+    protected void saveButton_Click(object sender, EventArgs e)
+    {
+        
+        if (IsValid)
+        {
+            messageLabel.Text = "massage is postbacked!";
+        }
+    }
 }
