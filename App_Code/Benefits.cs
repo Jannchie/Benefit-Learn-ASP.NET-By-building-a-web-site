@@ -35,6 +35,7 @@ public class Benefits
         benefitsArray[3].benefitPage = "retirement.aspx";
         HttpContext.Current.Trace.Warn("Benefit component", "Ending of GetBenefitsList");
         return benefitsArray;
+
     }
 
 }
