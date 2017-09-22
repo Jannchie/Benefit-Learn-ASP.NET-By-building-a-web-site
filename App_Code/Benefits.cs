@@ -22,7 +22,7 @@ public class Benefits
     }
     public BenefitInfo[] GetBenefitsList()
     {
-        HttpContext.Current.Trace.IsEnabled = true;
+      //  HttpContext.Current.Trace.IsEnabled = true;
         HttpContext.Current.Trace.Warn("Benefit component","Beginning of GetBenefitsList");
         BenefitInfo[] benefitsArray = new BenefitInfo[4];
         benefitsArray[0].benefitName = "Dental";

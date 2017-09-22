@@ -1,0 +1,14 @@
+﻿#table th {
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 1px 15px;
+}
+
+#table {
+}
+
+#form {
+    text-align:center;
+    
+}
