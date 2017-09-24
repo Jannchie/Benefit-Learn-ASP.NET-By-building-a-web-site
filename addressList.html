@@ -25,43 +25,46 @@
                 住址
             </th>
         </tr>
-        </table>
+
+
+    </table>
     <form id="form">
-        <table>
+        <table align="center" id="formTable">
             <tr>
                 <td>
-                    姓名
-                </td>
-                <td>
-                    <input id="nameText" type="text" /><br /><br />
+                    姓名：<input id="nameText" type="text" /><br /><br />
                 </td>
             </tr>
             <tr>
                 <td>
-                    年龄
-                </td>
-                <td>
+                    年龄：
                     <input id="ageText" type="text" /><br /><br />
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    性别：
+                    <input id="sexText" type="text" /><br /><br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    住址：
+                    <input id="addressText" type="text" /><br /><br />
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td>
+                    电话：
+                    <input id="telText" type="text" /><br /><br />
                 </td>
             </tr>
 
-                <td>
-                    性别
-                </td>
-                <td>
-                    电话号码
-                </td>
-                <td>
-                    住址
-                </td>
-
-
-</table>
-        性别:<input id="sexText" type="text" /><br /><br />
-        电话号码：<input id="telText" type="text" /><br /><br />
-        住址：<input id="adressText" type="text" /><br /><br />
-        <input id="Button1" type="button" value="提交" onclick="addRow()"/>
+        </table>
+        <input id="Button1" type="button" value="提交" onclick="addRow()" />
     </form>
+
     <script src="tableController.js"></script>
 </body>
 </html>

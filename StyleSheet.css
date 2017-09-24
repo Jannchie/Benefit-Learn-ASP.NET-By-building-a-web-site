@@ -5,10 +5,11 @@
     border-radius: 1px 15px;
 }
 
-#table {
+#formTable td {
+    align-content: center;
+    text-align:center;
 }
 
-#form {
-    text-align:center;
-    
+form {
+    text-align: center;
 }
