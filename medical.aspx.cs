@@ -25,4 +25,9 @@ public partial class medical : System.Web.UI.Page
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 
     }
+
+    protected void saveButton_Click(object sender, EventArgs e)
+    {
+        Label2.Text = nameDate1.EmpName + " born on " + nameDate1.EmoDOB.ToLongDateString();
+    }
 }
