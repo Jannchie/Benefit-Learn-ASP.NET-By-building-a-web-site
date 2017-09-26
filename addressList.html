@@ -32,39 +32,38 @@
         <table align="center" id="formTable">
             <tr>
                 <td>
-                    姓名：<input id="nameText" type="text" /><br /><br />
+                    姓名：<input id="nameText" type="text" required="required" /><br /><br />
                 </td>
             </tr>
             <tr>
                 <td>
                     年龄：
-                    <input id="ageText" type="text" /><br /><br />
+                    <input id="ageText" type="text" required="required"  /><br /><br />
 
                 </td>
             </tr>
             <tr>
                 <td>
                     性别：
-                    <input id="sexText" type="text" /><br /><br />
+                    <input id="sexText" type="text" required="required"  /><br /><br />
                 </td>
             </tr>
             <tr>
                 <td>
                     住址：
-                    <input id="addressText" type="text" /><br /><br />
+                    <input id="addressText" type="text" required="required"  /><br /><br />
                 </td>
             </tr>
             <tr valign="middle">
                 <td>
                     电话：
-                    <input id="telText" type="text" /><br /><br />
+                    <input id="telText" type="text" required="required" /><br /><br />
                 </td>
             </tr>
 
         </table>
-        <input id="Button1" type="button" value="提交" onclick="addRow()" />
+        <input id="submit" type="submit" value="提交" onsubmit="addRow()" />
     </form>
-
     <script src="tableController.js"></script>
 </body>
 </html>

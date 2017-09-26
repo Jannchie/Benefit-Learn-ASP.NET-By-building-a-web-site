@@ -101,8 +101,7 @@
                         runat="server"
                         errormessage="RegularExpressionValidator"
                         validationexpression="\d+(\.\d{2})?"
-                        text="*">
-                        ></asp:regularexpressionvalidator>
+                        text="*"></asp:regularexpressionvalidator>
                 </td>
             </tr>
             <tr>
