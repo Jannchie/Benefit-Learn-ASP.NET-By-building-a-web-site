@@ -29,7 +29,7 @@ public partial class doctors : System.Web.UI.Page
 
             //TODO Lab8: Bind the list to city field in the doctors table.
             CreateDataSet();
-            SqlCommand citiesSqlCommand = new SqlCommand("SELECT city FROM doctors",doctorsConnection);
+            SqlCommand citiesSqlCommand = new SqlCommand("SELECT DISTINCT city FROM doctors", doctorsConnection);
             SqlDataReader citiesSqlDataReader;
             doctorsConnection.Open();
             citiesSqlDataReader = citiesSqlCommand.ExecuteReader();
@@ -81,14 +81,7 @@ public partial class doctors : System.Web.UI.Page
 
     }
 
-    protected void doctorsGridView_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        doctorsGridView.DataBind();
-    }
 
-    protected void doctorsGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-    {
-    }
 
     protected void submitButton_Click(object sender, EventArgs e)
     {
@@ -109,8 +102,40 @@ public partial class doctors : System.Web.UI.Page
         String cityName = citiesList.Text;
         DataView doctorsDataView = new DataView(doctorsDataSet.Tables[0]);
         doctorsDataView.RowFilter ="city = '"+ cityName + "'";
+        Reset();
         doctorsGridView.DataSource = doctorsDataView;
         doctorsGridView.DataBind();
+    }
+
+    protected void doctorsGridView_PageIndexChanged(object sender, EventArgs e)
+    {
+        CreateDataSet();
+        String cityName = citiesList.Text;
+        if (cityName == "All")
+        {
+            doctorsGridView.DataSource = SqlDataSource1;
+            doctorsGridView.DataBind();
+            return;
+        }
+        DataView doctorsDataView = new DataView(doctorsDataSet.Tables[0]);
+        doctorsDataView.RowFilter = "city = '" + cityName + "'";
+        doctorsGridView.DataSource = doctorsDataView;
+        doctorsGridView.DataBind();
+    }
+
+    protected void doctorsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        doctorsGridView.PageIndex = e.NewPageIndex;
+    }
+
+
+    protected void doctorsGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+    }
+
+    protected void doctorsGridView_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
 
