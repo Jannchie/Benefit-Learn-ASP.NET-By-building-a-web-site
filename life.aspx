@@ -12,7 +12,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <p>
+    <br/> 
         <table style="width: 100%;">
             <tr>
                 <td class="auto-style3">&nbsp;</td>
@@ -133,5 +133,5 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
-    </p>
+   
 </asp:Content>

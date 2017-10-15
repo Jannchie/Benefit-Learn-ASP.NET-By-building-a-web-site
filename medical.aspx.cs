@@ -17,7 +17,12 @@ public partial class medical : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!Page.IsPostBack){
+            String pcp = Request.QueryString["pcp"];
+            if (pcp != null) {
+                doctorTextBox.Text = pcp;
+            }
+        }
     }
 
     private void InitializeComponent()
