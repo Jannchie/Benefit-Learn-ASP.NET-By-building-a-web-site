@@ -31,7 +31,7 @@
         <asp:Label ID="Label2" runat="server" style="font-weight: 700;font-size: large" 
             Text="Doctors"></asp:Label>
     </p>
-        <asp:GridView AllowPaging="True" PageSize="5" ID="doctorsGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="dr_id" EmptyDataText="没有可显示的数据记录。" OnSelectedIndexChanged="doctorsGridView_SelectedIndexChanged" OnSelectedIndexChanging="doctorsGridView_SelectedIndexChanging" OnPageIndexChanged="doctorsGridView_PageIndexChanged" OnPageIndexChanging="doctorsGridView_PageIndexChanging">
+        <asp:GridView AllowPaging="True" PageSize="5" ID="doctorsGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="dr_id" EmptyDataText="没有可显示的数据记录。" OnPageIndexChanged="doctorsGridView_PageIndexChanged" OnPageIndexChanging="doctorsGridView_PageIndexChanging">
             <Columns>
                 <asp:CommandField HeaderText="Select" ShowSelectButton="True" />
                 <asp:BoundField DataField="dr_id" HeaderText="dr_id" ReadOnly="True" SortExpression="dr_id" />

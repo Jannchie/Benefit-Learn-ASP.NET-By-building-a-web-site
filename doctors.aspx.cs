@@ -81,7 +81,7 @@ public partial class doctors : System.Web.UI.Page
 
     }
 
-
+ 
 
     protected void submitButton_Click(object sender, EventArgs e)
     {
@@ -92,22 +92,16 @@ public partial class doctors : System.Web.UI.Page
 
     protected void citiesList_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (citiesList.SelectedItem.Text == "All")
-        {
-            doctorsGridView.DataSource = SqlDataSource1;
-            doctorsGridView.DataBind();
-            return;
-        }
-        CreateDataSet();
-        String cityName = citiesList.Text;
-        DataView doctorsDataView = new DataView(doctorsDataSet.Tables[0]);
-        doctorsDataView.RowFilter ="city = '"+ cityName + "'";
         Reset();
-        doctorsGridView.DataSource = doctorsDataView;
-        doctorsGridView.DataBind();
+        refresh();
     }
 
     protected void doctorsGridView_PageIndexChanged(object sender, EventArgs e)
+    {
+        refresh();
+    }
+
+    private void refresh()
     {
         CreateDataSet();
         String cityName = citiesList.Text;
@@ -129,13 +123,5 @@ public partial class doctors : System.Web.UI.Page
     }
 
 
-    protected void doctorsGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-    {
-    }
-
-    protected void doctorsGridView_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
 }
 
