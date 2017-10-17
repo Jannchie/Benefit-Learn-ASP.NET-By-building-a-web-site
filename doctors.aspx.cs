@@ -44,8 +44,8 @@ public partial class doctors : System.Web.UI.Page
             //TODO Lab9: Bind the listbox to the getUniqueCities stored procedure.
 
             //TODO Lab8: Add the "All" item to the list and select it.
-            citiesList.Items.Insert(0,"All");
-            citiesList.SelectedIndex = citiesList.Items.IndexOf(citiesList.Items.FindByText("All"));
+            citiesList.Items.Insert(0,"[All]");
+            citiesList.SelectedIndex = citiesList.Items.IndexOf(citiesList.Items.FindByText("[All]"));
             
             // Hide the specialties ListBox.
             specialtiesListBox.Visible = false;
@@ -105,7 +105,7 @@ public partial class doctors : System.Web.UI.Page
     {
         CreateDataSet();
         String cityName = citiesList.Text;
-        if (cityName == "All")
+        if (cityName == "[All]")
         {
             doctorsGridView.DataSource = SqlDataSource1;
             doctorsGridView.DataBind();

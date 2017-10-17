@@ -19,7 +19,7 @@
         <asp:Label ID="specialtiesLabel" runat="server" Text="Specialties"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label3" runat="server" Text="City"></asp:Label>
-&nbsp;<asp:DropDownList ID="citiesList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="citiesList_SelectedIndexChanged">
+&nbsp;<asp:DropDownList ID="citiesList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="citiesList_SelectedIndexChanged" Height="16px">
         </asp:DropDownList>
         &nbsp;&nbsp;&nbsp;
         <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" />
