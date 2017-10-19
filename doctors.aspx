@@ -25,7 +25,7 @@
         <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" />
     </p>
     <p>
-        <asp:ListBox ID="specialtiesListBox" runat="server"></asp:ListBox>
+        <asp:ListBox ID="specialtiesListBox" runat="server" OnSelectedIndexChanged="specialtiesListBox_SelectedIndexChanged"></asp:ListBox>
     </p>
     <p>
         <asp:Label ID="Label2" runat="server" style="font-weight: 700;font-size: large" 

@@ -28,20 +28,36 @@ public partial class doctors : System.Web.UI.Page
             doctorsGridView.DataBind();
 
             //TODO Lab8: Bind the list to city field in the doctors table.
+            //CreateDataSet();
+            //SqlCommand citiesSqlCommand = new SqlCommand("SELECT DISTINCT city FROM doctors", doctorsConnection);
+            //SqlDataReader citiesSqlDataReader;
+
+            //doctorsConnection.Open();
+            doctorsGridView.DataSource = SqlDataSource1;
+            doctorsGridView.DataBind();
+
+
+            //citiesSqlDataReader = citiesSqlCommand.ExecuteReader();
+            //citiesList.DataSource = citiesSqlDataReader;
+            //citiesList.DataTextField = "city";
+            //citiesList.DataBind();
+            //citiesSqlDataReader.Close();
+            //doctorsConnection.Close();
+
+            //TODO Lab9: Bind the listbox to the getUniqueCities stored procedure.
             CreateDataSet();
-            SqlCommand citiesSqlCommand = new SqlCommand("SELECT DISTINCT city FROM doctors", doctorsConnection);
+            SqlCommand citiesSqlCommand = new SqlCommand("getUniqueCities",doctorsConnection);
+            citiesSqlCommand.CommandType = CommandType.StoredProcedure;
             SqlDataReader citiesSqlDataReader;
+
             doctorsConnection.Open();
             citiesSqlDataReader = citiesSqlCommand.ExecuteReader();
             citiesList.DataSource = citiesSqlDataReader;
-            citiesList.DataTextField = "city";
-            doctorsGridView.DataSource = SqlDataSource1;
+            citiesList.DataTextField = "City";
             citiesList.DataBind();
-            doctorsGridView.DataBind();
             citiesSqlDataReader.Close();
             doctorsConnection.Close();
 
-            //TODO Lab9: Bind the listbox to the getUniqueCities stored procedure.
 
             //TODO Lab8: Add the "All" item to the list and select it.
             citiesList.Items.Insert(0,"[All]");
@@ -123,5 +139,29 @@ public partial class doctors : System.Web.UI.Page
     }
 
 
+
+    protected void specialtiesListBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        CreateDataSet();
+        string drID = doctorsGridView.SelectedRow.Cells[0].Text.Trim();
+        SqlCommand specialtiesSqlCommand = new SqlCommand("getDrSpecialty",doctorsConnection);
+        specialtiesSqlCommand.CommandType = CommandType.StoredProcedure;
+        SqlParameter specialtiesParameter = new SqlParameter(@drID, SqlDbType.Char,4);
+        specialtiesParameter.Direction = ParameterDirection.Input;
+        specialtiesParameter.Value = drID;
+        specialtiesSqlCommand.Parameters.Add(specialtiesParameter);
+        SqlDataReader specialtiesSqlDataReader;
+        doctorsConnection.Open();
+        specialtiesSqlDataReader = specialtiesSqlCommand.ExecuteReader();
+        specialtiesListBox.DataSource = specialtiesSqlDataReader;
+        specialtiesListBox.DataTextField = "Specialty";
+        specialtiesListBox.DataBind();
+        if (specialtiesSqlDataReader.IsClosed == false)
+        {
+            specialtiesListBox.Visible = specialtiesSqlDataReader.HasRows;
+            specialtiesLabel.Visible = specialtiesSqlDataReader.HasRows;
+        }
+
+    }
 }
 
