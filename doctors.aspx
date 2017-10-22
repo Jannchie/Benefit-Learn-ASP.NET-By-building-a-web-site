@@ -26,12 +26,37 @@
     </p>
     <p>
         <asp:ListBox ID="specialtiesListBox" runat="server" OnSelectedIndexChanged="specialtiesListBox_SelectedIndexChanged"></asp:ListBox>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:doctorsConnectionString1 %>" DeleteCommand="DELETE FROM [doctors] WHERE [dr_id] = @dr_id" InsertCommand="INSERT INTO [doctors] ([dr_id], [dr_lname], [dr_fname], [phone], [address], [city], [state], [zip]) VALUES (@dr_id, @dr_lname, @dr_fname, @phone, @address, @city, @state, @zip)" ProviderName="<%$ ConnectionStrings:doctorsConnectionString1.ProviderName %>" SelectCommand="SELECT [dr_id], [dr_lname], [dr_fname], [phone], [address], [city], [state], [zip] FROM [doctors]" UpdateCommand="UPDATE [doctors] SET [dr_lname] = @dr_lname, [dr_fname] = @dr_fname, [phone] = @phone, [address] = @address, [city] = @city, [state] = @state, [zip] = @zip WHERE [dr_id] = @dr_id">
+            <DeleteParameters>
+                <asp:Parameter Name="dr_id" Type="String" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="dr_id" Type="String" />
+                <asp:Parameter Name="dr_lname" Type="String" />
+                <asp:Parameter Name="dr_fname" Type="String" />
+                <asp:Parameter Name="phone" Type="String" />
+                <asp:Parameter Name="address" Type="String" />
+                <asp:Parameter Name="city" Type="String" />
+                <asp:Parameter Name="state" Type="String" />
+                <asp:Parameter Name="zip" Type="String" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="dr_lname" Type="String" />
+                <asp:Parameter Name="dr_fname" Type="String" />
+                <asp:Parameter Name="phone" Type="String" />
+                <asp:Parameter Name="address" Type="String" />
+                <asp:Parameter Name="city" Type="String" />
+                <asp:Parameter Name="state" Type="String" />
+                <asp:Parameter Name="zip" Type="String" />
+                <asp:Parameter Name="dr_id" Type="String" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
     </p>
     <p>
         <asp:Label ID="Label2" runat="server" style="font-weight: 700;font-size: large" 
             Text="Doctors"></asp:Label>
     </p>
-        <asp:GridView AllowPaging="True" PageSize="5" ID="doctorsGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="dr_id" EmptyDataText="没有可显示的数据记录。" OnPageIndexChanged="doctorsGridView_PageIndexChanged" OnPageIndexChanging="doctorsGridView_PageIndexChanging">
+        <asp:GridView AllowPaging="True" PageSize="5" ID="doctorsGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="dr_id" EmptyDataText="没有可显示的数据记录。" OnPageIndexChanged="doctorsGridView_PageIndexChanged" OnPageIndexChanging="doctorsGridView_PageIndexChanging" OnSelectedIndexChanged="doctorsGridView_SelectedIndexChanged">
             <Columns>
                 <asp:CommandField HeaderText="Select" ShowSelectButton="True" />
                 <asp:BoundField DataField="dr_id" HeaderText="dr_id" ReadOnly="True" SortExpression="dr_id" />

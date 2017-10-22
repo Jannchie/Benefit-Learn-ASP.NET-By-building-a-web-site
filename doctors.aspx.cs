@@ -142,26 +142,42 @@ public partial class doctors : System.Web.UI.Page
 
     protected void specialtiesListBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        CreateDataSet();
-        string drID = doctorsGridView.SelectedRow.Cells[0].Text.Trim();
-        SqlCommand specialtiesSqlCommand = new SqlCommand("getDrSpecialty",doctorsConnection);
-        specialtiesSqlCommand.CommandType = CommandType.StoredProcedure;
-        SqlParameter specialtiesParameter = new SqlParameter(@drID, SqlDbType.Char,4);
-        specialtiesParameter.Direction = ParameterDirection.Input;
-        specialtiesParameter.Value = drID;
-        specialtiesSqlCommand.Parameters.Add(specialtiesParameter);
-        SqlDataReader specialtiesSqlDataReader;
-        doctorsConnection.Open();
-        specialtiesSqlDataReader = specialtiesSqlCommand.ExecuteReader();
-        specialtiesListBox.DataSource = specialtiesSqlDataReader;
+
+    }
+
+    protected void doctorsGridView_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //CreateDataSet();
+        //string drID = doctorsGridView.SelectedRow.Cells[1].Text.Trim();
+        //SqlCommand specialtiesSqlCommand = new SqlCommand("getDrSpecialty", doctorsConnection);
+        //specialtiesSqlCommand.CommandType = CommandType.StoredProcedure;
+        //SqlParameter specialtiesParameter = new SqlParameter("@dr_id", SqlDbType.Char, 4);
+        //specialtiesParameter.Direction = ParameterDirection.Input;
+        //specialtiesParameter.Value = drID;
+        //specialtiesSqlCommand.Parameters.Add(specialtiesParameter);
+        //SqlDataReader specialtiesSqlDataReader;
+        //doctorsConnection.Open();
+        //specialtiesSqlDataReader = specialtiesSqlCommand.ExecuteReader();
+        //specialtiesListBox.DataSource = specialtiesSqlDataReader;
+        //specialtiesListBox.DataTextField = "Specialty";
+        //specialtiesListBox.DataBind();
+        //if (specialtiesSqlDataReader.IsClosed == false)
+        //{
+        //    specialtiesListBox.Visible = specialtiesSqlDataReader.HasRows;
+        //    specialtiesLabel.Visible = specialtiesSqlDataReader.HasRows;
+        //}
+        //specialtiesSqlDataReader.Close();
+        //doctorsConnection.Close();
+        string drID = doctorsGridView.SelectedRow.Cells[1].Text.Trim();
+        DoctorsDataContext doctorsContext = new DoctorsDataContext();
+        specialtiesListBox.DataSource = doctorsContext.getDrSpecialty(drID);
         specialtiesListBox.DataTextField = "Specialty";
         specialtiesListBox.DataBind();
-        if (specialtiesSqlDataReader.IsClosed == false)
+        if (specialtiesListBox.Items.Count != 0)
         {
-            specialtiesListBox.Visible = specialtiesSqlDataReader.HasRows;
-            specialtiesLabel.Visible = specialtiesSqlDataReader.HasRows;
+            specialtiesListBox.Visible = true;
+            specialtiesLabel.Visible = true;
         }
-
     }
 }
 
