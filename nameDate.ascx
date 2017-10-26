@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="nameDate.ascx.cs" Inherits="nameDate" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <style type="text/css">
 
 
@@ -22,9 +23,21 @@
             <tr>
                 <td class="auto-style3">
                     <asp:label id="Label2" runat="server" text="Birth Date:"></asp:label>
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
                 </td>
                 <td class="auto-style4">
                     <asp:textbox id="birthTextBox" runat="server"></asp:textbox>
+                    <cc1:CalendarExtender ID="birthTextBox_CalendarExtender" runat="server" Format="yy/MM/dd" OnClientShown="dobCalendarShown" TargetControlID="birthTextBox">
+                    </cc1:CalendarExtender>
+
+                    <script type="text/javascript" language="javascript">
+                        function dobCalendarShown(sender, args)
+                        {
+                            sender._switchMode("years", true);
+                        }
+                    </script>
+
                     <asp:requiredfieldvalidator
                         id="birthRequiredFieldValidator"
                         controltovalidate="birthTextBox"
