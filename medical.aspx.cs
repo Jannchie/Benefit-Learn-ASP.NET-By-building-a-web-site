@@ -33,6 +33,11 @@ public partial class medical : System.Web.UI.Page
 
     protected void saveButton_Click(object sender, EventArgs e)
     {
+        HttpCookie httpCookie = Request.Cookies[""]
+        if(httpCookie != null)
+        {
+
+        }
         Label2.Text = nameDate1.EmpName + " born on " + nameDate1.EmoDOB.ToLongDateString();
     }
 }

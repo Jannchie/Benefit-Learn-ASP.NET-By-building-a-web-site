@@ -66,7 +66,5 @@ public class DentalService : System.Web.Services.WebService
         dentistsConnection.Close();
 
         return postCodeDataSet;
-
-
     }
 }
