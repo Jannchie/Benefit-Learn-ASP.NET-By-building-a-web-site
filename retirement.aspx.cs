@@ -18,10 +18,18 @@ public partial class retirement : System.Web.UI.Page
         if (!IsPostBack)
         {
             
+            Application.Lock();
+            Application["Visits"] =(int)Application["Visits"] + 1;
+            Application.UnLock();
+
             DataSet retirementDataSet = new DataSet();
             retirementDataSet.ReadXml(Server.MapPath("") +"/mutual_funds.xml");
             retirementGridView.DataSource = retirementDataSet;
             retirementGridView.DataBind();
         }
-    }
+
+        visitsLabel.Text = "This page has been visited " 
+            + Application["Visits"].ToString() 
+            + " times";
+    } 
 }

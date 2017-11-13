@@ -19,11 +19,14 @@ public partial class _Default : System.Web.UI.Page
                 listBenefitsCheckBoxList.Items.Add("<a href = " + benefit.benefitPage + ">" + benefit.benefitName + "</a>");
             }
         }
-        HttpCookie httpCookie = new HttpCookie("Benefit");
-        string doctor = null;
-        string life = null;
-        httpCookie.Values.Add("Doctor", doctor);
-        httpCookie.Values.Add("Life", life);
+        HttpCookie httpCookie = Request.Cookies["benefits"];
+        string doctor = "";
+        string life = "";
+        if (httpCookie != null)
+        {
+            httpCookie.Values.Add("Doctor", doctor);
+            httpCookie.Values.Add("Life", life);
+        }
 
         if (httpCookie != null)
         {
