@@ -66,7 +66,7 @@
     </p>
         <asp:UpdatePanel ID="doctorsUpdatePanel" runat="server">
             <ContentTemplate>
-                <asp:GridView ID="doctorsGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="dr_id" EmptyDataText="没有可显示的数据记录。" OnPageIndexChanged="doctorsGridView_PageIndexChanged" OnPageIndexChanging="doctorsGridView_PageIndexChanging" OnSelectedIndexChanged="doctorsGridView_SelectedIndexChanged" PageSize="5">
+                <asp:GridView ID="doctorsGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="dr_id" EmptyDataText="没有可显示的数据记录。" OnPageIndexChanged="doctorsGridView_PageIndexChanged" OnPageIndexChanging="doctorsGridView_PageIndexChanging" OnSelectedIndexChanged="doctorsGridView_SelectedIndexChanged" PageSize="5">
                     <Columns>
                         <asp:CommandField HeaderText="Select" ShowSelectButton="True" />
                         <asp:BoundField DataField="dr_id" HeaderText="dr_id" ReadOnly="True" SortExpression="dr_id" />
@@ -106,6 +106,6 @@
                 <asp:Parameter Name="dr_id" Type="String" />
             </UpdateParameters>
         </asp:SqlDataSource>
-        nnn</form>
+        </form>
 </body>
 </html>

@@ -4,6 +4,8 @@
 
 <%@ Register src="nameDate.ascx" tagname="nameDate" tagprefix="uc2" %>
 
+<%@ OutputCache Duration="120" VaryByParam="pcp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,7 +48,7 @@
             <td>
             <br />
                 <asp:Label ID="Label1" runat="server" Text="Primary Care Physician:"></asp:Label>
-                <asp:TextBox ID="doctorTextBox" runat="server" Width="117px"></asp:TextBox>
+                <asp:TextBox ID="doctorTextBox" runat="server" Width="200px"></asp:TextBox>
                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="doctors.aspx">Select a doctor</asp:HyperLink>
             </td>
         </tr>

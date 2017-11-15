@@ -1,0 +1,32 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="securitytest.aspx.cs" Inherits="securitytest" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <style type="text/css">
+        .style1
+        {
+            font-size: x-large;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" method="post" runat="server">
+	    <p class="style1">
+            Current security info:</p>
+        <p>
+            <b>Authenticated User:</b>
+            <asp:Label ID="UserLabel" runat="server" Text="Label"></asp:Label>
+        </p>
+        <p>
+            <b>Authentication Type:</b>
+            <asp:Label ID="AuthenticationTypeLabel" runat="server" Text="Label"></asp:Label>
+        </p>
+    </form>    
+<p>
+    &nbsp;</p>
+</body>
+</html>

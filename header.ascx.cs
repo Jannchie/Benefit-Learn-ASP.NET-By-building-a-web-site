@@ -27,5 +27,6 @@ public partial class header : System.Web.UI.UserControl
         retirementHyperLink.InnerText = benefitsArray[2].benefitName;
         lifeHyperLink.HRef = benefitsArray[3].benefitPage;
         lifeHyperLink.InnerText = benefitsArray[3].benefitName;
+        timeLabel.Text = DateTime.Now.ToLongTimeString();
     }
 }

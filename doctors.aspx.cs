@@ -33,7 +33,8 @@ public partial class doctors : System.Web.UI.Page
             //SqlDataReader citiesSqlDataReader;
 
             //doctorsConnection.Open();
-            doctorsGridView.DataSource = SqlDataSource1;
+            CreateDataSet();
+            doctorsGridView.DataSource = (DataSet)Cache["doctors"];
             doctorsGridView.DataBind();
 
 
@@ -45,7 +46,6 @@ public partial class doctors : System.Web.UI.Page
             //doctorsConnection.Close();
 
             //TODO Lab9: Bind the listbox to the getUniqueCities stored procedure.
-            CreateDataSet();
             SqlCommand citiesSqlCommand = new SqlCommand("getUniqueCities",doctorsConnection);
             citiesSqlCommand.CommandType = CommandType.StoredProcedure;
             SqlDataReader citiesSqlDataReader;
@@ -72,11 +72,18 @@ public partial class doctors : System.Web.UI.Page
 
     void CreateDataSet()
     {
+
         doctorsConnection = new SqlConnection(SqlDataSource1.ConnectionString);
         SqlCommand sc = new SqlCommand(SqlDataSource1.SelectCommand, doctorsConnection);
         doctorsSqlDataAdapter = new SqlDataAdapter(sc);
         doctorsDataSet = new DataSet();
-        doctorsSqlDataAdapter.Fill(doctorsDataSet);
+        if (Cache["doctors"] == null)
+        {
+            doctorsSqlDataAdapter.Fill(doctorsDataSet);
+            Cache.Insert("doctors", doctorsDataSet, null, 
+                DateTime.Now.AddMinutes(4), System.Web.Caching.Cache.NoSlidingExpiration);
+        }
+
     }
 
     private void Reset()
@@ -123,11 +130,11 @@ public partial class doctors : System.Web.UI.Page
         String cityName = citiesList.Text;
         if (cityName == "[All]")
         {
-            doctorsGridView.DataSource = SqlDataSource1;
+            doctorsGridView.DataSource = (DataSet)Cache["doctors"];
             doctorsGridView.DataBind();
             return;
         }
-        DataView doctorsDataView = new DataView(doctorsDataSet.Tables[0]);
+        DataView doctorsDataView = new DataView(((DataSet)Cache["doctors"]).Tables[0]);
         doctorsDataView.RowFilter = "city = '" + cityName + "'";
         doctorsGridView.DataSource = doctorsDataView;
         doctorsGridView.DataBind();
