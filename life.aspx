@@ -1,18 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/benefitsMaster.master" AutoEventWireup="true" CodeFile="life.aspx.cs" Inherits="life" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <style type="text/css">
-        .auto-style3 {
-            width: 198px;
-        }
+    <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+        <style type="text/css">
+            .auto-style3 {
+                width: 198px;
+            }
 
-        .auto-style4 {
-            width: 304px;
-        }
-    </style>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <br/> 
+            .auto-style4 {
+                width: 304px;
+            }
+        </style>
+    </asp:Content>
+    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+        <br/>
         <table style="width: 100%;">
             <tr>
                 <td class="auto-style3">&nbsp;</td>
@@ -32,13 +32,8 @@
                 </td>
                 <td class="auto-style4">
                     <asp:textbox id="nameTextBox" runat="server"></asp:textbox>
-                    <asp:requiredfieldvalidator
-                        id="nameRequiredFieldValidator"
-                        controltovalidate="nameTextBox"
-                        runat="server"
-                        errormessage="Please enter your name"
-                        forecolor="Red"
-                        text="*"></asp:requiredfieldvalidator>
+                    <asp:requiredfieldvalidator id="nameRequiredFieldValidator" controltovalidate="nameTextBox" runat="server" errormessage="Please enter your name"
+                        forecolor="Red" text="*"></asp:requiredfieldvalidator>
                 </td>
                 <td>
                     <asp:label id="Label5" runat="server" text="Proof of good health appointment"></asp:label>
@@ -50,26 +45,15 @@
                 </td>
                 <td class="auto-style4">
                     <asp:textbox id="birthTextBox" runat="server"></asp:textbox>
-                    <asp:requiredfieldvalidator
-                        id="birthRequiredFieldValidator"
-                        controltovalidate="birthTextBox"
-                        runat="server"
-                        errormessage="Please enter your birth date"
-                        forecolor="Red"
-                        text="*">
+                    <asp:requiredfieldvalidator id="birthRequiredFieldValidator" controltovalidate="birthTextBox" runat="server" errormessage="Please enter your birth date"
+                        forecolor="Red" text="*">
                     </asp:requiredfieldvalidator>
-                    <asp:comparevalidator
-                        id="CompareValidator1"
-                        runat="server"
-                        errormessage="Please enter correct date"
-                        controltovalidate="birthTextBox"
-                        forecolor="Red"
-                        operator="DataTypeCheck"
-                        text="*"
-                        type="Date"></asp:comparevalidator>
+                    <asp:comparevalidator id="CompareValidator1" runat="server" errormessage="Please enter correct date" controltovalidate="birthTextBox"
+                        forecolor="Red" operator="DataTypeCheck" text="*" type="Date"></asp:comparevalidator>
                 </td>
                 <td rowspan="5">
-                    <asp:calendar id="Calendar1" runat="server" backcolor="#FFFFCC" bordercolor="#FFCC66" borderwidth="1px" daynameformat="Shortest" font-names="Verdana" font-size="8pt" forecolor="#663399" height="200px" showgridlines="True" width="220px">
+                    <asp:calendar id="Calendar1" runat="server" backcolor="#FFFFCC" bordercolor="#FFCC66" borderwidth="1px" daynameformat="Shortest"
+                        font-names="Verdana" font-size="8pt" forecolor="#663399" height="200px" showgridlines="True" width="220px">
                         <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
                         <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
                         <OtherMonthDayStyle ForeColor="#CC9966" />
@@ -86,22 +70,11 @@
                 </td>
                 <td class="auto-style4">
                     <asp:textbox id="coverageTextBox" runat="server"></asp:textbox>
-                    <asp:requiredfieldvalidator
-                        id="coverageRequiredFieldValidator"
-                        controltovalidate="coverageTextBox"
-                        runat="server"
-                        errormessage="Please enter your coverage"
-                        forecolor="Red"
-                        text="*">
+                    <asp:requiredfieldvalidator id="coverageRequiredFieldValidator" controltovalidate="coverageTextBox" runat="server" errormessage="Please enter your coverage"
+                        forecolor="Red" text="*">
                     </asp:requiredfieldvalidator>
-                    <asp:regularexpressionvalidator
-                        id="RegularExpressionValidator1"
-                        controltovalidate="coverageTextBox"
-                        forecolor="Red"
-                        runat="server"
-                        errormessage="RegularExpressionValidator"
-                        validationexpression="\d+(\.\d{2})?"
-                        text="*"></asp:regularexpressionvalidator>
+                    <asp:regularexpressionvalidator id="RegularExpressionValidator1" controltovalidate="coverageTextBox" forecolor="Red" runat="server"
+                        errormessage="RegularExpressionValidator" validationexpression="\d+(\.\d{2})?" text="*"></asp:regularexpressionvalidator>
                 </td>
             </tr>
             <tr>
@@ -128,10 +101,11 @@
                     <asp:label id="messageLabel" runat="server"></asp:label>
                 </td>
                 <td class="auto-style4">
-                    <asp:validationsummary id="ValidationSummary1" headertext="These errors were found!" runat="server" forecolor="Red" width="296px" />
+                    <asp:validationsummary id="ValidationSummary1" headertext="These errors were found!" runat="server" forecolor="Red" width="296px"
+                    />
                 </td>
                 <td>&nbsp;</td>
             </tr>
         </table>
-   
-</asp:Content>
+
+    </asp:Content>
